@@ -14,7 +14,7 @@ inicio
    escreval("---Bem-vindo!---")
    escreval("")
    escreval("comandos:")
-   escreval("(A)juda (S)air")
+   escreval("(A)juda (Esc) para sair")
    escreval("")
 
 fimprocedimento
