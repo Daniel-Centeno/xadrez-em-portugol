@@ -6,38 +6,48 @@ Algoritmo "xadrez"
 
 //variaveis globais
 var
-resposta: caracter
+   resposta: caracter
 
-
+   //
 procedimento imprimir_boas_vindas
-   inicio
-      escreval("---Bem-vindo!---")
-      escreval("")
-      escreval("comandos:")
+inicio
+   escreval("---Bem-vindo!---")
+   escreval("")
+   escreval("comandos:")
+   escreval("(A)juda (S)air")
+   escreval("")
 
-      escreval("(a)juda (s)air")
-      escreval(" - ENTER - para começar")
 fimprocedimento
 
+//
+procedimento imprimir_ajuda
+inicio
+   limpatela
+   escreval("este programa usa a notação algébrica")
+   escreval("exemplo:")
+   escreval("     e4. e5. ...")
+   escreval("     ou")
+   escreval("     e2e4. e7e5")
+   escreval("")
+   escreval("Casos especiais:")
+   escreval("     '0-0' '0-0-0' - roque")
+   escreval(" - ENTER - para começar")
+fimprocedimento
 
 //programa principal
 inicio
-      imprimir_boas_vindas
-      
-      leia(resposta)
-      limpatela
-      
-      escolha resposta
-              caso "a"
-                   //comando
-              caso "a"
-                   //comando
-              caso "a"
-                   //comando
-              caso "a"
-                   //comando
-              outrocaso
-                   escreval("comando '"+resposta+"' não identificado")
-      fimescolha
-      
+   imprimir_boas_vindas
+
+   leia(resposta)
+   limpatela
+
+   escolha resposta
+   caso "A"
+      imprimir_ajuda
+   fimescolha
+
+   limpatela
+   
+   //loop principal
+
 Fimalgoritmo
