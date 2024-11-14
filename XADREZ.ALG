@@ -15,7 +15,8 @@ procedimento imprimir_boas_vindas
       escreval("")
       escreval("comandos:")
 
-      escreval("(a)juda (b)rancas (p)retas (2) jogadores")
+      escreval("(a)juda (s)air")
+      escreval(" - ENTER - para começar")
 fimprocedimento
 
 
