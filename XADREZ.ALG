@@ -6,17 +6,37 @@ Algoritmo "xadrez"
 
 //variaveis globais
 var
+resposta: caracter
 
 
 procedimento imprimir_boas_vindas
    inicio
-      escreval ("Bem-vindo!")
-      escreval("comandos: (a)juda (b)rancas (p)retas (2) jogadores")
+      escreval("---Bem-vindo!---")
+      escreval("")
+      escreval("comandos:")
+
+      escreval("(a)juda (b)rancas (p)retas (2) jogadores")
 fimprocedimento
 
 
 //programa principal
 inicio
       imprimir_boas_vindas
-
+      
+      leia(resposta)
+      limpatela
+      
+      escolha resposta
+              caso "a"
+                   //comando
+              caso "a"
+                   //comando
+              caso "a"
+                   //comando
+              caso "a"
+                   //comando
+              outrocaso
+                   escreval("comando '"+resposta+"' não identificado")
+      fimescolha
+      
 Fimalgoritmo
