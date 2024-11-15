@@ -10,8 +10,9 @@ var
    matriz_tabuleiro: vetor[1..8, 1..8] de inteiro
    index,index_hor,index_ver,horizontal,coluna : inteiro
    lista_pecas : vetor[0..12] de inteiro
+   rodando : logico
 
-   //
+//
 procedimento imprimir_boas_vindas
 inicio
    escreval("---Bem-vindo!---")
@@ -103,6 +104,21 @@ para index_ver de 1 ate 8 passo 1 faca
 fimpara
 fimprocedimento
 
+///// ----------- verificação de movimentos das peças -----
+//
+procedimento verificar_torre(hor,ver : inteiro)
+inicio
+     escreval("")
+     para index_hor de 1 ate 8 passo 1 faca
+             escreva(matriz_tabuleiro[index_hor,ver])
+     fimpara
+
+     escreval("")
+     para index_ver de 1 ate 8 passo 1 faca
+                  escreva(matriz_tabuleiro[hor,index_ver])
+     fimpara
+fimprocedimento
+
 //programa principal
 inicio
    definir_posicao_inicial
@@ -116,8 +132,15 @@ inicio
       imprimir_ajuda
    fimse
 
+   rodando := verdadeiro
+   enquanto rodando faca
+            //escreval("sdas")
+            verificar_torre(1,5)
+            rodando := falso
+   fimenquanto
+
    //limpatela
-   
+
    //loop principal
 
 Fimalgoritmo
