@@ -44,7 +44,8 @@ inicio
 para index_hor de 1 ate 8 passo 1 faca
      para index_ver de 1 ate 8 passo 1 faca
           //metodo pra converter a peça de numero pra algo legivel
-          escreva(matriz_tabuleiro[index_hor, index_ver])
+          //escreva(matriz_tabuleiro[index_hor, index_ver])
+          escreva(index_hor,",",index_ver,"")
      fimpara
      escreval("") // vai para a linha de baixo
 fimpara
@@ -53,6 +54,7 @@ fimprocedimento
 //
 procedimento definir_posicao_inicial
 inicio
+
 para index_ver de 1 ate 8 passo 1 faca
      para index_hor de 1 ate 8 passo 1 faca
           escolha index_hor // para cada horizontal de cada vez
@@ -108,24 +110,132 @@ fimprocedimento
 //
 procedimento verificar_torre(hor,ver : inteiro)
 inicio
+     //verificação para baixo
      escreval("")
-     para index_hor de 1 ate 8 passo 1 faca
-             escreva(matriz_tabuleiro[index_hor,ver])
-     fimpara
 
+        para index_hor de hor+1 ate 8 passo 1 faca
+           //o "+1" é para descontar a casa atual e até 7, pq é o num max de casas
+           // possíveis de serem andadas
+
+           // verifica se a casa está vazia
+           se matriz_tabuleiro[index_hor,ver] <> 0 entao
+              // se a casa não estiver vazia, não prossegue a verificação
+              interrompa
+           fimse
+
+
+           escreval("index_hor: ",index_hor)
+           escreval("hor: ",hor)
+        fimpara
+     
+     //verificação para cima
      escreval("")
-     para index_ver de 1 ate 8 passo 1 faca
-                  escreva(matriz_tabuleiro[hor,index_ver])
-     fimpara
+        para index_hor de hor-1 ate 1 passo -1 faca
+           //o "+1" é para descontar a casa atual e até 7, pq é o num max de casas
+           // possíveis de serem andadas
+
+           se matriz_tabuleiro[index_hor,ver] <> 0 entao
+             // se a casa não estiver vazia, não prossegue a verificação
+             interrompa
+           fimse
+
+           escreval("index_hor: ",index_hor)
+           escreval("hor: ",hor)
+        fimpara
+     
+     //verificação para direita
+     escreval("")
+        para index_ver de ver+1 ate 8 passo 1 faca
+           se matriz_tabuleiro[hor,index_ver] <> 0 entao
+              // se a casa não estiver vazia, não prossegue a verificação
+              interrompa
+           fimse
+
+           escreval("index_ver: ",index_ver)
+           escreval("ver: ", ver)
+        fimpara
+
+     //verificação para esquerda
+     escreval("")
+        para index_ver de ver-1 ate 1 passo -1 faca
+           se matriz_tabuleiro[hor,index_ver] <> 0 entao
+              // se a casa não estiver vazia, não prossegue a verificação
+              interrompa
+           fimse
+
+           escreval("index_ver: ",index_ver)
+           escreval("ver: ", ver)
+        fimpara
+fimprocedimento
+
+//
+procedimento verificar_bispo(hor,ver : inteiro)
+inicio
+index_hor := hor
+    //verificação inferior-direita
+     escreval("")
+        para index_ver de ver+1 ate 8 passo 1 faca
+           index_hor := index_hor+1
+           se matriz_tabuleiro[index_hor,index_ver] <> 0 entao
+              // se a casa não estiver vazia, não prossegue a verificação
+              interrompa
+           fimse
+           escreval("index_ver: ",index_ver)
+           escreval("index_hor: ",index_hor)
+           escreval(" ")
+        fimpara
+
+index_hor := hor
+     //verificação superior-direita
+     escreval("")
+        para index_ver de ver+1 ate 8 passo 1 faca
+           index_hor := index_hor-1
+           se matriz_tabuleiro[index_hor,index_ver] <> 0 entao
+              // se a casa não estiver vazia, não prossegue a verificação
+              interrompa
+           fimse
+           escreval("index_ver: ",index_ver)
+           escreval("index_hor: ",index_hor)
+           escreval(" ")
+        fimpara
+fimprocedimento
+
+index_ver := ver
+    //verificação inferior-direita
+     escreval("")
+        para index_ver de ver+1 ate 8 passo 1 faca
+           index_hor := index_hor+1
+           se matriz_tabuleiro[index_hor,index_ver] <> 0 entao
+              // se a casa não estiver vazia, não prossegue a verificação
+              interrompa
+           fimse
+           escreval("index_ver: ",index_ver)
+           escreval("index_hor: ",index_hor)
+           escreval(" ")
+        fimpara
+
+index_ver := ver
+     //verificação superior-direita
+     escreval("")
+        para index_ver de ver+1 ate 8 passo 1 faca
+           index_hor := index_hor-1
+           se matriz_tabuleiro[index_hor,index_ver] <> 0 entao
+              // se a casa não estiver vazia, não prossegue a verificação
+              interrompa
+           fimse
+           escreval("index_ver: ",index_ver)
+           escreval("index_hor: ",index_hor)
+           escreval(" ")
+        fimpara
 fimprocedimento
 
 //programa principal
 inicio
    definir_posicao_inicial
-   mostrar_tabuleiro
-   imprimir_boas_vindas
+   //mostrar_tabuleiro
+   //imprimir_boas_vindas
 
-   leia(resposta)
+   //leia(resposta)
    //limpatela
 
    se (resposta = "A") ou (resposta = "a") entao
@@ -135,8 +245,9 @@ inicio
    rodando := verdadeiro
    enquanto rodando faca
             //escreval("sdas")
-            verificar_torre(1,5)
+            //verificar_torre(5,1)
             rodando := falso
+            verificar_bispo(4,4)
    fimenquanto
 
    //limpatela
