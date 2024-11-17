@@ -176,8 +176,10 @@ index_hor := hor
      escreval("")
         para index_ver de ver+1 ate 8 passo 1 faca
            index_hor := index_hor+1
-           se matriz_tabuleiro[index_hor,index_ver] <> 0 entao
-              // se a casa não estiver vazia, não prossegue a verificação
+           se ((index_hor < 1) ou (index_hor > 8)) entao
+              interrompa
+           fimse
+           se (matriz_tabuleiro[index_hor,index_ver] <> 0) entao
               interrompa
            fimse
            escreval("index_ver: ",index_ver)
@@ -190,38 +192,49 @@ index_hor := hor
      escreval("")
         para index_ver de ver+1 ate 8 passo 1 faca
            index_hor := index_hor-1
-           se matriz_tabuleiro[index_hor,index_ver] <> 0 entao
-              // se a casa não estiver vazia, não prossegue a verificação
+           se (index_hor < 1) ou (index_hor > 8) entao
               interrompa
            fimse
+           se (matriz_tabuleiro[index_hor,index_ver] <> 0) entao
+              // se a casa não estiver vazia, não prossegue a verificação
+                 interrompa
+           fimse
+           escreval("index_ver: ",index_ver)
+           escreval("index_hor: ",index_hor)
+           escreval(matriz_tabuleiro[index_hor,index_ver])
+           escreval(" ")
+        fimpara
+        
+index_ver := ver
+    //verificação inferior-esquerda
+     escreval("")
+        para index_hor de hor+1 ate 8 passo 1 faca
+
+           index_ver := index_ver-1
+           se (index_ver < 1) ou (index_ver > 8) entao
+              interrompa
+           fimse
+           se (matriz_tabuleiro[index_hor,index_ver] <> 0) entao
+              // se a casa não estiver vazia, não prossegue a verificação
+                 interrompa
+           fimse
+
            escreval("index_ver: ",index_ver)
            escreval("index_hor: ",index_hor)
            escreval(" ")
         fimpara
-fimprocedimento
 
 index_ver := ver
-    //verificação inferior-direita
+     //verificação superior-esquerda
      escreval("")
-        para index_ver de ver+1 ate 8 passo 1 faca
-           index_hor := index_hor+1
-           se matriz_tabuleiro[index_hor,index_ver] <> 0 entao
-              // se a casa não estiver vazia, não prossegue a verificação
+        para index_hor de hor-1 ate 1 passo -1 faca
+           index_ver := index_ver-1
+           se (index_ver < 1) ou (index_ver > 8) entao
               interrompa
            fimse
-           escreval("index_ver: ",index_ver)
-           escreval("index_hor: ",index_hor)
-           escreval(" ")
-        fimpara
-
-index_ver := ver
-     //verificação superior-direita
-     escreval("")
-        para index_ver de ver+1 ate 8 passo 1 faca
-           index_hor := index_hor-1
-           se matriz_tabuleiro[index_hor,index_ver] <> 0 entao
+           se (matriz_tabuleiro[index_hor,index_ver] <> 0) entao
               // se a casa não estiver vazia, não prossegue a verificação
-              interrompa
+                 interrompa
            fimse
            escreval("index_ver: ",index_ver)
            escreval("index_hor: ",index_hor)
@@ -247,7 +260,7 @@ inicio
             //escreval("sdas")
             //verificar_torre(5,1)
             rodando := falso
-            verificar_bispo(4,4)
+            verificar_bispo(5,5)
    fimenquanto
 
    //limpatela
