@@ -242,6 +242,101 @@ index_ver := ver
         fimpara
 fimprocedimento
 
+procedimento verificar_cavalo(hor,ver : inteiro)
+var
+inicio
+      index_hor := hor+2
+      index_ver := ver+1
+           se (index_ver > 0) e (index_ver < 9) entao
+              se (index_hor > 0) e (index_hor < 9) entao
+                 //se (matriz_tabuleiro[index_hor,index_ver] = 0) entao
+                 // se a casa não estiver vazia, não prossegue a verificação
+//                    escreval("casa valida(h,v): ", index_hor, index_ver)
+                    //computa o lance
+                 //fimse
+              fimse
+           fimse
+      index_hor := hor+1
+      index_ver := ver+2
+           se (index_ver > 0) e (index_ver < 9) entao
+              se (index_hor > 0) e (index_hor < 9) entao
+                 //se (matriz_tabuleiro[index_hor,index_ver] = 0) entao
+                 // se a casa não estiver vazia, não prossegue a verificação
+//                    escreval("casa valida(h,v): ", index_hor, index_ver)
+                    //computa o lance
+                 //fimse
+              fimse
+           fimse
+      index_hor := hor+2
+      index_ver := ver-1
+           se (index_ver > 0) e (index_ver < 9) entao
+              se (index_hor > 0) e (index_hor < 9) entao
+                 //se (matriz_tabuleiro[index_hor,index_ver] = 0) entao
+                 // se a casa não estiver vazia, não prossegue a verificação
+                    escreval("casa valida(h,v): ", index_hor, index_ver)
+                    //computa o lance
+                 //fimse
+              fimse
+           fimse
+      index_hor := hor+1
+      index_ver := ver-2
+           se (index_ver > 0) e (index_ver < 9) entao
+              se (index_hor > 0) e (index_hor < 9) entao
+                 //se (matriz_tabuleiro[index_hor,index_ver] = 0) entao
+                 // se a casa não estiver vazia, não prossegue a verificação
+                    escreval("casa valida(h,v): ", index_hor, index_ver)
+                    //computa o lance
+                 //fimse
+              fimse
+           fimse
+      index_hor := hor-2
+      index_ver := ver-1
+           se (index_ver > 0) e (index_ver < 9) entao
+              se (index_hor > 0) e (index_hor < 9) entao
+                 //se (matriz_tabuleiro[index_hor,index_ver] = 0) entao
+                 // se a casa não estiver vazia, não prossegue a verificação
+//                    escreval("casa valida(h,v): ", index_hor, index_ver)
+                    //computa o lance
+                 //fimse
+              fimse
+           fimse
+      index_hor := hor-1
+      index_ver := ver-2
+           se (index_ver > 0) e (index_ver < 9) entao
+              se (index_hor > 0) e (index_hor < 9) entao
+                 //se (matriz_tabuleiro[index_hor,index_ver] = 0) entao
+                 // se a casa não estiver vazia, não prossegue a verificação
+//                    escreval("casa valida(h,v): ", index_hor, index_ver)
+                    //computa o lance
+                 //fimse
+              fimse
+           fimse
+      index_hor := hor-1
+      index_ver := ver+2
+           se (index_ver > 0) e (index_ver < 9) entao
+              se (index_hor > 0) e (index_hor < 9) entao
+                 //se (matriz_tabuleiro[index_hor,index_ver] = 0) entao
+                 // se a casa não estiver vazia, não prossegue a verificação
+                    escreval("casa valida(h,v): ", index_hor, index_ver)
+                    //computa o lance
+                 //fimse
+              fimse
+           fimse
+      index_hor := hor-2
+      index_ver := ver+1
+           se (index_ver > 0) e (index_ver < 9) entao
+              se (index_hor > 0) e (index_hor < 9) entao
+                 //se (matriz_tabuleiro[index_hor,index_ver] = 0) entao
+                  //se a casa não estiver vazia, não prossegue a verificação
+                    escreval("casa valida(h,v): ", index_hor, index_ver)
+                    //computa o lance
+                 //fimse
+              fimse
+           fimse
+
+
+fimprocedimento
+
 //programa principal
 inicio
    definir_posicao_inicial
@@ -257,10 +352,11 @@ inicio
 
    rodando := verdadeiro
    enquanto rodando faca
-            //escreval("sdas")
             //verificar_torre(5,1)
             rodando := falso
-            verificar_bispo(5,5)
+            //verificar_bispo(5,5)
+            verificar_cavalo(1,8)
+            
    fimenquanto
 
    //limpatela
