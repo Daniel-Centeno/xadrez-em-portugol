@@ -243,6 +243,107 @@ index_ver := ver
 fimprocedimento
 
 //-
+procedimento verificar_dama(hor, ver: inteiro)
+inicio
+   // Verificar torre (movimento horizontal e vertical, até 7 casas)
+
+   // Verificação para baixo
+   para index_hor de hor + 1 ate hor + 7 faca
+      se (index_hor >= 1) e (index_hor <= 8) entao
+         se matriz_tabuleiro[index_hor, ver] = 0 entao
+            escreval("Movimento possível para baixo: ", index_hor, ",", ver)
+         senao
+            interrompa // Parar ao encontrar uma casa ocupada
+         fimse
+      fimse
+   fimpara
+
+   // Verificação para cima
+   para index_hor de hor - 1 ate hor - 7 passo -1 faca
+      se (index_hor >= 1) e (index_hor <= 8) entao
+         se matriz_tabuleiro[index_hor, ver] = 0 entao
+            escreval("Movimento possível para cima: ", index_hor, ",", ver)
+         senao
+            interrompa
+         fimse
+      fimse
+   fimpara
+
+   // Verificação para direita
+   para index_ver de ver + 1 ate ver + 7 faca
+      se (index_ver >= 1) e (index_ver <= 8) entao
+         se matriz_tabuleiro[hor, index_ver] = 0 entao
+            escreval("Movimento possível para direita: ", hor, ",", index_ver)
+         senao
+            interrompa
+         fimse
+      fimse
+   fimpara
+
+   // Verificação para esquerda
+   para index_ver de ver - 1 ate ver - 7 passo -1 faca
+      se (index_ver >= 1) e (index_ver <= 8) entao
+         se matriz_tabuleiro[hor, index_ver] = 0 entao
+            escreval("Movimento possível para esquerda: ", hor, ",", index_ver)
+         senao
+            interrompa
+         fimse
+      fimse
+   fimpara
+
+   // Verificar bispo (movimento diagonal, até 7 casas)
+
+   // Inferior-direita
+   para index_hor de hor + 1 ate hor + 7 faca
+      index_ver := ver + (index_hor - hor)
+      se (index_hor >= 1) e (index_hor <= 8) e (index_ver >= 1) e (index_ver <= 8) entao
+         se matriz_tabuleiro[index_hor, index_ver] = 0 entao
+            escreval("Movimento possível para inferior-direita: ", index_hor, ",", index_ver)
+         senao
+            interrompa
+         fimse
+      fimse
+   fimpara
+
+   // Superior-direita
+   para index_hor de hor - 1 ate hor - 7 passo -1 faca
+      index_ver := ver + (hor - index_hor)
+      se (index_hor >= 1) e (index_hor <= 8) e (index_ver >= 1) e (index_ver <= 8) entao
+         se matriz_tabuleiro[index_hor, index_ver] = 0 entao
+            escreval("Movimento possível para superior-direita: ", index_hor, ",", index_ver)
+         senao
+            interrompa
+         fimse
+      fimse
+   fimpara
+
+   // Inferior-esquerda
+   para index_hor de hor + 1 ate hor + 7 faca
+      index_ver := ver - (index_hor - hor)
+      se (index_hor >= 1) e (index_hor <= 8) e (index_ver >= 1) e (index_ver <= 8) entao
+         se matriz_tabuleiro[index_hor, index_ver] = 0 entao
+            escreval("Movimento possível para inferior-esquerda: ", index_hor, ",", index_ver)
+         senao
+            interrompa
+         fimse
+      fimse
+   fimpara
+
+   // Superior-esquerda
+   para index_hor de hor - 1 ate hor - 7 passo -1 faca
+      index_ver := ver - (hor - index_hor)
+      se (index_hor >= 1) e (index_hor <= 8) e (index_ver >= 1) e (index_ver <= 8) entao
+         se matriz_tabuleiro[index_hor, index_ver] = 0 entao
+            escreval("Movimento possível para superior-esquerda: ", index_hor, ",", index_ver)
+         senao
+            interrompa
+         fimse
+      fimse
+   fimpara
+fimprocedimento
+
+
+//-
 procedimento verificar_rei(hor, ver: inteiro)
 inicio
    // Inicializar variáveis
@@ -425,7 +526,8 @@ inicio
             rodando := falso
             //verificar_bispo(5,5)
             //verificar_cavalo(1,8)
-            verificar_rei(4,4)
+            //verificar_rei(4,4)
+            verificar_dama(1,1)
             
    fimenquanto
 
