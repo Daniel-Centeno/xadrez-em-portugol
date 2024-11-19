@@ -242,6 +242,75 @@ index_ver := ver
         fimpara
 fimprocedimento
 
+//-
+procedimento verificar_rei(hor, ver: inteiro)
+inicio
+   // Inicializar variáveis
+   index_hor := hor
+   index_ver := ver
+
+   // Verificar torre (movimento horizontal e vertical, 1 casa)
+
+   // Verificação para baixo
+   se (index_hor + 1 >= 1) e (index_hor + 1 <= 8) entao
+      se matriz_tabuleiro[index_hor + 1, ver] = 0 entao
+         escreval("Movimento possível para baixo: ", index_hor + 1, ",", ver)
+      fimse
+   fimse
+
+   // Verificação para cima
+   se (index_hor - 1 >= 1) e (index_hor - 1 <= 8) entao
+      se matriz_tabuleiro[index_hor - 1, ver] = 0 entao
+         escreval("Movimento possível para cima: ", index_hor - 1, ",", ver)
+      fimse
+   fimse
+
+   // Verificação para direita
+   se (index_ver + 1 >= 1) e (index_ver + 1 <= 8) entao
+      se matriz_tabuleiro[hor, index_ver + 1] = 0 entao
+         escreval("Movimento possível para direita: ", hor, ",", index_ver + 1)
+      fimse
+   fimse
+
+   // Verificação para esquerda
+   se (index_ver - 1 >= 1) e (index_ver - 1 <= 8) entao
+      se matriz_tabuleiro[hor, index_ver - 1] = 0 entao
+         escreval("Movimento possível para esquerda: ", hor, ",", index_ver - 1)
+      fimse
+   fimse
+
+   // Verificar bispo (movimento diagonal, 1 casa)
+
+   // Inferior-direita
+   se (index_hor + 1 >= 1) e (index_hor + 1 <= 8) e (index_ver + 1 >= 1) e (index_ver + 1 <= 8) entao
+      se matriz_tabuleiro[index_hor + 1, index_ver + 1] = 0 entao
+         escreval("Movimento possível para inferior-direita: ", index_hor + 1, ",", index_ver + 1)
+      fimse
+   fimse
+
+   // Superior-direita
+   se (index_hor - 1 >= 1) e (index_hor - 1 <= 8) e (index_ver + 1 >= 1) e (index_ver + 1 <= 8) entao
+      se matriz_tabuleiro[index_hor - 1, index_ver + 1] = 0 entao
+         escreval("Movimento possível para superior-direita: ", index_hor - 1, ",", index_ver + 1)
+      fimse
+   fimse
+
+   // Inferior-esquerda
+   se (index_hor + 1 >= 1) e (index_hor + 1 <= 8) e (index_ver - 1 >= 1) e (index_ver - 1 <= 8) entao
+      se matriz_tabuleiro[index_hor + 1, index_ver - 1] = 0 entao
+         escreval("Movimento possível para inferior-esquerda: ", index_hor + 1, ",", index_ver - 1)
+      fimse
+   fimse
+
+   // Superior-esquerda
+   se (index_hor - 1 >= 1) e (index_hor - 1 <= 8) e (index_ver - 1 >= 1) e (index_ver - 1 <= 8) entao
+      se matriz_tabuleiro[index_hor - 1, index_ver - 1] = 0 entao
+         escreval("Movimento possível para superior-esquerda: ", index_hor - 1, ",", index_ver - 1)
+      fimse
+   fimse
+fimprocedimento
+
+//
 procedimento verificar_cavalo(hor,ver : inteiro)
 var
 inicio
@@ -251,7 +320,7 @@ inicio
               se (index_hor > 0) e (index_hor < 9) entao
                  //se (matriz_tabuleiro[index_hor,index_ver] = 0) entao
                  // se a casa não estiver vazia, não prossegue a verificação
-//                    escreval("casa valida(h,v): ", index_hor, index_ver)
+                    escreval("casa valida(h,v): ", index_hor, index_ver)
                     //computa o lance
                  //fimse
               fimse
@@ -262,7 +331,7 @@ inicio
               se (index_hor > 0) e (index_hor < 9) entao
                  //se (matriz_tabuleiro[index_hor,index_ver] = 0) entao
                  // se a casa não estiver vazia, não prossegue a verificação
-//                    escreval("casa valida(h,v): ", index_hor, index_ver)
+                    escreval("casa valida(h,v): ", index_hor, index_ver)
                     //computa o lance
                  //fimse
               fimse
@@ -295,7 +364,7 @@ inicio
               se (index_hor > 0) e (index_hor < 9) entao
                  //se (matriz_tabuleiro[index_hor,index_ver] = 0) entao
                  // se a casa não estiver vazia, não prossegue a verificação
-//                    escreval("casa valida(h,v): ", index_hor, index_ver)
+                    escreval("casa valida(h,v): ", index_hor, index_ver)
                     //computa o lance
                  //fimse
               fimse
@@ -306,7 +375,7 @@ inicio
               se (index_hor > 0) e (index_hor < 9) entao
                  //se (matriz_tabuleiro[index_hor,index_ver] = 0) entao
                  // se a casa não estiver vazia, não prossegue a verificação
-//                    escreval("casa valida(h,v): ", index_hor, index_ver)
+                    escreval("casa valida(h,v): ", index_hor, index_ver)
                     //computa o lance
                  //fimse
               fimse
@@ -355,7 +424,8 @@ inicio
             //verificar_torre(5,1)
             rodando := falso
             //verificar_bispo(5,5)
-            verificar_cavalo(1,8)
+            //verificar_cavalo(1,8)
+            verificar_rei(4,4)
             
    fimenquanto
 
