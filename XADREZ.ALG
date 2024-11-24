@@ -412,6 +412,40 @@ inicio
 fimprocedimento
 
 //
+procedimento verificar_peoes_brancas(hor,ver : inteiro)
+// Inferior-direita
+   se (index_hor + 1 >= 1) e (index_hor + 1 <= 8) e (index_ver + 1 >= 1) e (index_ver + 1 <= 8) entao
+      se matriz_tabuleiro[index_hor + 1, index_ver + 1] = 0 entao
+         escreval("Movimento possível para inferior-direita: ", index_hor + 1, ",", index_ver + 1)
+      fimse
+   fimse
+// Inferior-esquerda
+   se (index_hor + 1 >= 1) e (index_hor + 1 <= 8) e (index_ver - 1 >= 1) e (index_ver - 1 <= 8) entao
+      se matriz_tabuleiro[index_hor + 1, index_ver - 1] = 0 entao
+         escreval("Movimento possível para inferior-esquerda: ", index_hor + 1, ",", index_ver - 1)
+      fimse
+   fimse
+fimprocedimento
+
+//
+procedimento verificar_peoes_pretas(hor,ver : inteiro)
+ // Superior-direita
+   se (index_hor - 1 >= 1) e (index_hor - 1 <= 8) e (index_ver + 1 >= 1) e (index_ver + 1 <= 8) entao
+      se matriz_tabuleiro[index_hor - 1, index_ver + 1] = 0 entao
+         escreval("Movimento possível para superior-direita: ", index_hor - 1, ",", index_ver + 1)
+      fimse
+   fimse
+   // Superior-esquerda
+   se (index_hor - 1 >= 1) e (index_hor - 1 <= 8) e (index_ver - 1 >= 1) e (index_ver - 1 <= 8) entao
+      se matriz_tabuleiro[index_hor - 1, index_ver - 1] = 0 entao
+         escreval("Movimento possível para superior-esquerda: ", index_hor - 1, ",", index_ver - 1)
+      fimse
+   fimse
+
+fimprocedimento
+
+
+//
 procedimento verificar_cavalo(hor,ver : inteiro)
 var
 inicio
