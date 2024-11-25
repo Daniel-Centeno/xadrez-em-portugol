@@ -43,8 +43,39 @@ inicio
 para index_hor de 1 ate 8 passo 1 faca
      para index_ver de 1 ate 8 passo 1 faca
           //metodo pra converter a peça de numero pra algo legivel
+          escolha matriz_tabuleiro[index_hor, index_ver]
+                  caso 0
+                       escreva(" ·")
+                  caso 1
+                       escreva(" p")
+                  caso 2
+                       escreva(" c")
+                  caso 3
+                       escreva(" b")
+                  caso 4
+                       escreva(" t")
+                  caso 5
+                       escreva(" d")
+                  caso 6
+                       escreva(" r")
+                  caso 7
+                       escreva(" P")
+                  caso 8
+                       escreva(" C")
+                  caso 9
+                       escreva(" B")
+                  caso 10
+                       escreva(" T")
+                  caso 11
+                       escreva(" D")
+                  caso 12
+                       escreva(" R")
+                  caso 13
+                       escreva(" r")
+          fimescolha
+
           //escreva(matriz_tabuleiro[index_hor, index_ver])
-          escreva(index_hor,",",index_ver,"")
+
      fimpara
      escreval("") // vai para a linha de baixo
 fimpara
