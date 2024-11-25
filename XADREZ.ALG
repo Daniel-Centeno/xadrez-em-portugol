@@ -6,11 +6,13 @@ Algoritmo "xadrez"
 
 //variaveis globais
 var
+fds : caracter
    resposta: caracter
    matriz_tabuleiro: vetor[1..8, 1..8] de inteiro
    index,index_hor,index_ver,horizontal,coluna : inteiro
    lista_pecas : vetor[0..12] de inteiro
    rodando : logico
+   vez_brancas : logico
 //
 procedimento imprimir_boas_vindas
 inicio
@@ -136,6 +138,7 @@ para index_ver de 1 ate 8 passo 1 faca
 fimpara
 fimprocedimento
 
+//
 procedimento vertical_para_numero(letra: caractere)
 var
    codigo : inteiro
@@ -161,6 +164,16 @@ inicio
            caso 104
                 //letra a -> 8
       fimescolha
+fimprocedimento
+
+//
+procedimento computar_lance(casa_inic, casa_fin : caracter)
+var
+   col, hor : caracter
+inicio
+   col <- copia(casa_inic,1,1)
+   vertical_para_numero(col)
+
 fimprocedimento
 
 // -------------- verificaçao de xeques / ameaças ------
@@ -612,6 +625,8 @@ inicio
    imprimir_boas_vindas
    leia(resposta)
    
+   computar_lance(resposta,resposta)
+   escreval(fds)
    mostrar_tabuleiro
 
    //vertical_para_numero(resposta)
@@ -623,10 +638,11 @@ inicio
    //   imprimir_ajuda
    //fimse
 
-   //rodando := verdadeiro
-   //enquanto rodando faca
+   rodando := verdadeiro
+   enquanto rodando faca
+            rodando := falso
 
-   //fimenquanto
+   fimenquanto
 
    //limpatela
 
