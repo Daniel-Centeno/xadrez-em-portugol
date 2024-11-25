@@ -110,7 +110,7 @@ var
    codigo : inteiro
 inicio
       // tira o codigo ascii da letra
-      codigo <- asc(letra)
+      codigo := asc(letra)
 
       escolha codigo
            caso 97
@@ -570,12 +570,13 @@ fimprocedimento
 //programa principal
 inicio
    definir_posicao_inicial
-   //mostrar_tabuleiro
-   //imprimir_boas_vindas
 
+   imprimir_boas_vindas
    leia(resposta)
+   
+   mostrar_tabuleiro
 
-   vertical_para_numero(resposta)
+   //vertical_para_numero(resposta)
 
    //limpatela
 
