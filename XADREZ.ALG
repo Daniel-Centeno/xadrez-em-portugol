@@ -11,7 +11,6 @@ var
    index,index_hor,index_ver,horizontal,coluna : inteiro
    lista_pecas : vetor[0..12] de inteiro
    rodando : logico
-
 //
 procedimento imprimir_boas_vindas
 inicio
@@ -104,6 +103,33 @@ para index_ver de 1 ate 8 passo 1 faca
           fimescolha
      fimpara
 fimpara
+fimprocedimento
+
+procedimento vertical_para_numero(letra: caractere)
+var
+   codigo : inteiro
+inicio
+      // tira o codigo ascii da letra
+      codigo <- asc(letra)
+
+      escolha codigo
+           caso 97
+                //letra a -> 1
+           caso 98
+                //letra a -> 2
+           caso 99
+                //letra a -> 3
+           caso 100
+                //letra a -> 4
+           caso 101
+                //letra a -> 5
+           caso 102
+                //letra a -> 6
+           caso 103
+                //letra a -> 7
+           caso 104
+                //letra a -> 8
+      fimescolha
 fimprocedimento
 
 ///// ----------- verificação de movimentos das peças -----
@@ -547,23 +573,21 @@ inicio
    //mostrar_tabuleiro
    //imprimir_boas_vindas
 
-   //leia(resposta)
+   leia(resposta)
+
+   vertical_para_numero(resposta)
+
    //limpatela
 
-   se (resposta = "A") ou (resposta = "a") entao
-      imprimir_ajuda
-   fimse
 
-   rodando := verdadeiro
-   enquanto rodando faca
-            //verificar_torre(5,1)
-            rodando := falso
-            //verificar_bispo(5,5)
-            //verificar_cavalo(1,8)
-            //verificar_rei(4,4)
-            verificar_dama(1,1)
-            
-   fimenquanto
+   //se (resposta = "A") ou (resposta = "a") entao
+   //   imprimir_ajuda
+   //fimse
+
+   //rodando := verdadeiro
+   //enquanto rodando faca
+
+   //fimenquanto
 
    //limpatela
 
