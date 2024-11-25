@@ -163,6 +163,13 @@ inicio
       fimescolha
 fimprocedimento
 
+// -------------- verificaçao de xeques / ameaças ------
+funcao verificar_ameaca(casa : caracter) : logico
+       verificar_torre(casa)
+       //outras peças
+       retorne
+fimfuncao
+
 ///// ----------- verificação de movimentos das peças -----
 //
 procedimento verificar_torre(hor,ver : inteiro)
